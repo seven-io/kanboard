@@ -1,0 +1,29 @@
+{
+    "authors": [
+        {
+            "email": "support@sms77.io",
+            "homepage": "https://www.sms77.io",
+            "name": "sms77 e.K.",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "discard-changes": true,
+        "optimize-autoloader": true,
+        "preferred-install": "dist"
+    },
+    "homepage": "https://github.com/sms77io/kanboard",
+    "license": "MIT",
+    "name": "sms77/kanboard",
+    "require": {
+        "php": ">=5.6",
+        "sms77/api": "dev-php5.6"
+    },
+    "support": {
+        "docs": "https://github.com/sms77io/kanboard",
+        "email": "support@sms77.io",
+        "rss": "https://www.sms77.io/de/feed/",
+        "source": "https://github.com/sms77io/kanboard"
+    },
+    "type": "project"
+}
