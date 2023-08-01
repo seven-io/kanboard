@@ -1,9 +1,9 @@
 {
     "authors": [
         {
-            "email": "support@sms77.io",
-            "homepage": "https://www.sms77.io",
-            "name": "sms77 e.K.",
+            "email": "support@seven.io",
+            "homepage": "https://www.seven.io",
+            "name": "seven communications GmbH & Co. KG",
             "role": "Developer"
         }
     ],
@@ -12,18 +12,18 @@
         "optimize-autoloader": true,
         "preferred-install": "dist"
     },
-    "homepage": "https://github.com/sms77io/kanboard",
+    "homepage": "https://github.com/seven-io/kanboard",
     "license": "MIT",
-    "name": "sms77/kanboard",
+    "name": "seven.io/kanboard",
     "require": {
-        "php": ">=5.6",
-        "sms77/api": "dev-php5.6"
+        "php": ">=7.4",
+        "sms77/api": "v2.6.0"
     },
     "support": {
-        "docs": "https://github.com/sms77io/kanboard",
-        "email": "support@sms77.io",
-        "rss": "https://www.sms77.io/de/feed/",
-        "source": "https://github.com/sms77io/kanboard"
+        "docs": "https://github.com/seven-io/kanboard",
+        "email": "support@seven.io",
+        "rss": "https://www.seven.io/en/feed/",
+        "source": "https://github.com/seven-io/kanboard"
     },
     "type": "project"
 }

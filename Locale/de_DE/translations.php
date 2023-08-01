@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'API Key' => 'sms77 API-Schlüssel',
+    'API Key' => 'seven API-Schlüssel',
     'Kanboard verification code: %d' => 'Kanboard Code: %d',
     'Phone Number' => 'Mobilfunknummer',
     'SMS' => 'SMS',

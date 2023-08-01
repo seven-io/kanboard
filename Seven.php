@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\Sms77;
+namespace Kanboard\Plugin\Seven;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -9,56 +9,54 @@ use Kanboard\Core\Base;
 use Kanboard\Model\ConfigModel;
 use Pimple\Container;
 use Sms77\Api\Client;
+use Sms77\Api\Params\SmsParams;
 
 /**
  * SMS Manager
  * @package  sms
- * @author   sms77 e.K.
+ * @author   seven communications GmbH & Co. KG
  */
-class Sms77 extends Base {
+class Seven extends Base {
     /**
-     * sms77 API Key
-     * @access private
+     * seven API Key
      * @var string
      */
     private $apiKey;
 
     /**
      * sender identifier
-     * @access private
      * @var string|null
      */
     private $from;
 
-    /**
-     * Constructor
-     * @access public
-     * @param Container $container
-     */
     public function __construct(Container $container) {
         parent::__construct($container);
 
         /** @var ConfigModel $configModel */
         $configModel = $container['configModel'];
-        $this->apiKey = $configModel->get('sms77_api_key');
-        $this->from = $configModel->get('sms77_from');
+        $this->apiKey = $configModel->get('seven_api_key');
+        $this->from = $configModel->get('seven_from');
     }
 
     /**
      * Send SMS
-     * @access public
      * @param string $to The recipients phone number
      * @param string $text The text to send
      * @throws Exception
      */
     public function sms(string $to, string $text): void {
         try {
-            $this->logger->debug('sms77: Sending SMS to ' . $to);
+            $this->logger->debug('seven: Sending SMS to ' . $to);
 
-            (new Client($this->apiKey, 'Kanboard'))
-                ->sms($to, t('Kanboard verification code: %d', $text), ['from' => $this->from]);
+            $smsParams = (new SmsParams)
+                ->setFrom($this->from)
+                ->setText(t('Kanboard verification code: %d', $text))
+                ->setTo($to)
+            ;
+
+            (new Client($this->apiKey, 'Kanboard'))->sms($smsParams);
         } catch (Exception $e) {
-            $this->logger->error('sms77: ' . $e->getMessage());
+            $this->logger->error('seven: ' . $e->getMessage());
         }
     }
 }

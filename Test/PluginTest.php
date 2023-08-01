@@ -2,7 +2,7 @@
 
 require_once 'tests/units/Base.php';
 
-use Kanboard\Plugin\Sms77\Plugin;
+use Kanboard\Plugin\Seven\Plugin;
 
 class PluginTest extends Base {
     public function testPlugin() {

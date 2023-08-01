@@ -1,21 +1,21 @@
 <?php
 
-namespace Kanboard\Plugin\Sms77;
+namespace Kanboard\Plugin\Seven;
 
 use Kanboard\Core\Plugin\Base;
 use Kanboard\Core\Translator;
 
 class Plugin extends Base {
     public function initialize(): void {
-        $this->container['sms77'] = static function ($container) {
-            return new Sms77($container);
+        $this->container['seven'] = static function ($container) {
+            return new Seven($container);
         };
 
         $this->authenticationManager->register(new SmsAuth($this->container));
 
         $hooks = [
-            'template:config:integrations' => 'Sms77:config/integration',
-            'template:user:integrations' => 'Sms77:user/integration',
+            'template:config:integrations' => 'Seven:config/integration',
+            'template:user:integrations' => 'Seven:user/integration',
         ];
 
         foreach ($hooks as $k => $v) $this->template->hook->attach($k, $v);
@@ -26,7 +26,7 @@ class Plugin extends Base {
     }
 
     public function getPluginName(): string {
-        return 'sms77';
+        return 'seven';
     }
 
     public function getPluginDescription(): string {
@@ -34,7 +34,7 @@ class Plugin extends Base {
     }
 
     public function getPluginAuthor(): string {
-        return 'sms77 e.K.';
+        return 'seven communications GmbH & Co. KG';
     }
 
     public function getPluginVersion(): string {
@@ -42,10 +42,10 @@ class Plugin extends Base {
     }
 
     public function getPluginHomepage(): string {
-        return 'https://github.com/sms77io/kanboard';
+        return 'https://github.com/seven-io/kanboard';
     }
 
     public function getCompatibleVersion(): string {
-        return '>=1.2.0';
+        return '>=1.2.13';
     }
 }

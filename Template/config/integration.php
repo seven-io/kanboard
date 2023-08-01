@@ -1,4 +1,4 @@
-<h2>sms77</h2>
+<h2>seven</h2>
 
 <h3>
     <i class='fa fa-envelope fa-fw'></i>
@@ -6,13 +6,13 @@
 </h3>
 
 <div class='panel'>
-    <?= $this->form->label(t('API Key'), 'sms77_api_key') ?>
-    <?= $this->form->password('sms77_api_key', $values, [], [
+    <?= $this->form->label(t('API Key'), 'seven_api_key') ?>
+    <?= $this->form->password('seven_api_key', $values, [], [
         'maxlength=90',
     ]) ?>
 
-    <?= $this->form->label(t('Sender Identifier'), 'sms77_from') ?>
-    <?= $this->form->text('sms77_from', $values, [], [
+    <?= $this->form->label(t('Sender Identifier'), 'seven_from') ?>
+    <?= $this->form->text('seven7_from', $values, [], [
         'maxlength=16',
     ]) ?>
 

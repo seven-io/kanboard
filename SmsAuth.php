@@ -1,6 +1,6 @@
 <?php
 
-namespace Kanboard\Plugin\Sms77;
+namespace Kanboard\Plugin\Seven;
 
 use Kanboard\Core\Base;
 use Kanboard\Core\Security\PostAuthenticationProviderInterface;
@@ -8,31 +8,25 @@ use Kanboard\Core\Security\PostAuthenticationProviderInterface;
 /**
  * SMS Authentication Provider
  * @package  auth
- * @author   sms77 e.K.
+ * @author   seven communications GmbH & Co. KG
  */
 class SmsAuth extends Base implements PostAuthenticationProviderInterface {
-    private const SESSION_KEY = 'sms77_2fa_secret';
+    private const SESSION_KEY = 'seven_2fa_secret';
 
     /**
      * User pin code
-     * @access private
-     * @var string
      */
-    private $code = '';
+    private string $code = '';
 
     /**
      * Get authentication provider name
-     * @access public
-     * @return string
      */
     public function getName(): string {
-        return t('SMS') . ' (sms77)';
+        return t('SMS') . ' (seven)';
     }
 
     /**
      * Authenticate the user
-     * @access public
-     * @return boolean
      */
     public function authenticate(): bool {
         if (session_exists(self::SESSION_KEY)
@@ -50,7 +44,7 @@ class SmsAuth extends Base implements PostAuthenticationProviderInterface {
         $secret = random_int(100000, 999999);
         session_set(self::SESSION_KEY, $secret);
         $to = $this->userMetadataModel->get($this->userSession->getId(), 'phone_number');
-        $this->container['sms77']->sms($to, $secret);
+        $this->container['seven']->sms($to, $secret);
     }
 
     /** @inheritDoc */
@@ -65,8 +59,6 @@ class SmsAuth extends Base implements PostAuthenticationProviderInterface {
 
     /**
      * Set secret token
-     * @access public
-     * @param string $secret
      */
     public function setSecret($secret): void {
     }
