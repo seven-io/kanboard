@@ -1,65 +1,83 @@
-<img src="https://www.seven.io/wp-content/uploads/Logo.svg" width="250" />
+<p align="center">
+  <img src="https://www.seven.io/wp-content/uploads/Logo.svg" width="250" alt="seven logo" />
+</p>
 
-# seven plugin for Kanboard
+<h1 align="center">seven 2FA for Kanboard</h1>
 
-Adds seven provider for sending text messages (SMS) instead of the default TOTP system.
+<p align="center">
+  Replace the default TOTP-based two-factor authentication in <a href="https://kanboard.org/">Kanboard</a> with SMS one-time codes via the seven gateway.
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-teal.svg" alt="MIT License" /></a>
+  <img src="https://img.shields.io/badge/Kanboard-1.2%2B-blue" alt="Kanboard 1.2+" />
+  <img src="https://img.shields.io/badge/PHP-7.2%2B-purple" alt="PHP 7.2+" />
+</p>
+
+---
+
+## Features
+
+- **SMS-Based 2FA** - Replace TOTP with one-time codes delivered via SMS
+- **Per-User Phone Number** - Each user manages their own mobile number from their profile
+- **Custom Sender ID** - Up to 11 alphanumeric or 16 numeric characters
 
 ## Prerequisites
 
-- An [API key](https://help.seven.io/en/api-key-access) from [seven](https://www.seven.io)
-- [Kanboard](https://kanboard.org/) installation (tested with 1.2.x)
+- A [Kanboard](https://kanboard.org/) 1.2.x installation
 - PHP 7.2+
+- A [seven account](https://www.seven.io/) with API key ([How to get your API key](https://help.seven.io/en/developer/where-do-i-find-my-api-key))
 
 ## Installation
 
-### Via FTP
+### Via release
 
-Download
-the [latest release](https://github.com/seven-io/kanboard/releases/latest/download/seven-kanboard-latest.zip)
-and extract the archive to `/path/to/kanboard/plugins/`.
+Download the [latest release](https://github.com/seven-io/kanboard/releases/latest/download/seven-kanboard-latest.zip) and extract it into `/path/to/kanboard/plugins/`.
 
 ### Via git
 
-- `cd /var/www/html/plugins`
-- `git clone https://github.com/seven-io/kanboard Seven`
+```bash
+cd /var/www/html/plugins
+git clone https://github.com/seven-io/kanboard Seven
+```
 
-**Attention:** The plugin folder is *case-sensitive*.
+> **Heads up:** The plugin folder name is *case-sensitive* and must be `Seven`.
 
-## Setup
+## Configuration
 
-1. Open up your Kanboard administration
-2. Go to **Settings -> Integrations -> seven**
-3. **API Key:** Enter your seven API Key
-4. **Sender Identifier:** Optionally enter a sender identifier being displayed as the SMS
-   sender - max. 11 alphanumeric or 16 numeric characters, country specific restrictions
-   may apply
+1. Open the Kanboard admin.
+2. Go to **Settings > Integrations > seven**.
+3. Fill in:
 
-See the example [screenshot](_screenshots/configuration.png).
+| Field | Description |
+|-------|-------------|
+| API Key | Your seven API key |
+| Sender Identifier | Optional. Up to 11 alphanumeric or 16 numeric characters |
+
+See [`_screenshots/configuration.png`](_screenshots/configuration.png) for a reference screenshot.
 
 ## Usage
 
-### Set User Phone Number
+### Set the user's phone number
 
-1. Go to your user profile
-2. Go to **Actions -> Integrations -> seven**
-3. Enter your mobile phone number in the field **Phone Number** and click **Save**
+1. Open the user profile.
+2. Go to **Actions > Integrations > seven**.
+3. Type the mobile number into **Phone Number** and click **Save**.
 
-See the example [screenshot](_screenshots/edit_user.png).
+See [`_screenshots/edit_user.png`](_screenshots/edit_user.png).
 
-### Enable Two-Factor Authentication
+### Enable two-factor authentication
 
-1. Go to the user profile
-2. Go to **Actions -> Two-factor authentication** and click **Enable two-factor
-   authentication**
-3. Enter the code sent to your phone device in the field named **Code** and click **Check
-   my code**
+1. Open the user profile.
+2. Go to **Actions > Two-factor authentication** and click **Enable two-factor authentication**.
+3. Type the code received via SMS into **Code** and click **Check my code**.
 
-See the example screenshots [before validation](_screenshots/2fa_before_validation.png),
-[awaiting validation](_screenshots/2fa_awaiting_validation.png)
-and [after validation](_screenshots/2fa_after_validation.png).
+Reference screenshots: [before validation](_screenshots/2fa_before_validation.png), [awaiting validation](_screenshots/2fa_awaiting_validation.png), [after validation](_screenshots/2fa_after_validation.png).
 
 ## Support
 
-Need help? Feel free to [contact us](https://www.seven.io/en/company/contact/).
+Need help? Feel free to [contact us](https://www.seven.io/en/company/contact/) or [open an issue](https://github.com/seven-io/kanboard/issues).
 
-[![MIT](https://img.shields.io/badge/License-MIT-teal.svg)](LICENSE)
+## License
+
+[MIT](LICENSE)
